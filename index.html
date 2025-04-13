@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sri Sakthi Aircon</title>
+
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="icon" type="image/png" href="logoo.png" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: url('back.jpg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+    }
+
+    .main-container {
+      width: 100%;
+      max-width: 430px;
+      background-color: transparent;
+      position: relative;
+    }
+
+    .section {
+      padding: 6px 5px;
+      position: relative;
+    }
+
+    .section-content {
+      text-align: center;
+      max-width: 100%;
+      position: relative;
+    }
+
+    .section-content img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      max-width: 430px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.75);
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0;
+      z-index: 1000;
+    }
+
+    .bottom-nav a {
+      flex: 1;
+      color: white;
+      text-decoration: none;
+      text-align: center;
+      font-size: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .bottom-nav a .material-icons {
+      font-size: 22px;
+      margin-bottom: 3px;
+    }
+
+    .bottom-nav a.active {
+      background-color: orange;
+      color: black;
+      border-radius: 5px;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 14px;
+      color: white;
+      margin-bottom: 110px;
+      margin-top: -60px;
+      font-weight: 500;
+    }
+
+    .button-container {
+      position: absolute;
+      top: 16%;
+      left: 9%;
+      width: 49%;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      z-index: 10;
+    }
+
+    .button-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    .custom-button {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #66b3ff;
+      color: white;
+      border: none;
+      padding: 4px 5px;
+      font-size: 11px;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      height: 34px;
+      gap: 4px;
+    }
+
+    .custom-button .material-icons {
+      font-size: 16px;
+    }
+
+    .info-block {
+      position: absolute;
+      top: 35%;
+      left: 5%;
+      right: 5%;
+      z-index: 10;
+      text-align: left;
+      color: black;
+      font-size: 17px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .info-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .info-icon {
+      background-color: #007bff;
+      color: white;
+      border-radius: 50%;
+      padding: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    .phonebook-button {
+      margin-top: 15px;
+      background-color: #ffa500;
+      color: black;
+      text-align: center;
+      padding: 8px 12px;
+      font-weight: bold;
+      border-radius: 8px;
+      text-decoration: none;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Feedback Form Styles */
+    .feedback-form {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 15px;
+      border-radius: 8px;
+      width: 90%;
+      z-index: 10;
+    }
+
+    .stars {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .stars span {
+      font-size: 24px;
+      cursor: pointer;
+      color: gray;
+    }
+
+    .stars .selected {
+      color: gold;
+    }
+
+    .feedback-form input,
+    .feedback-form textarea {
+      width: 100%;
+      padding: 6px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    .feedback-form button {
+      width: 100%;
+      padding: 8px;
+      background-color: #007bff;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    /* Enquiry Form */
+    .enquiry-form {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 15px;
+      border-radius: 8px;
+      width: 90%;
+      z-index: 10;
+    }
+
+    .enquiry-form input,
+    .enquiry-form textarea {
+      width: 100%;
+      padding: 6px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    .enquiry-form button {
+      width: 100%;
+      padding: 8px;
+      background-color: #28a745;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+ /* Share Section Styles */
+    .share-content-overlay {
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      z-index: 10;
+      text-align: center;
+    }
+
+    .website-link-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 15px;
+      background-color: white;
+      border-radius: 5px;
+      padding: 5px;
+    }
+
+    .website-link {
+      flex-grow: 1;
+      text-align: center;
+      font-size: 14px;
+      color: #333;
+      margin: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .copy-button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 5px;
+    }
+
+    .copy-button .material-icons {
+      font-size: 16px;
+    }
+
+    .qr-instruction {
+      color: #333;
+      font-weight: 500;
+      margin: 10px 0;
+      background-color: rgba(255, 255, 255, 0.7);
+      padding: 5px;
+      border-radius: 5px;
+    }
+
+    .qr-container {
+      width: 150px;
+      height: 150px;
+      background-color: white;
+      border: 1px solid #ccc;
+      margin: 0 auto 15px;
+      padding: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .qr-container img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    .action-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+
+    .action-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-weight: 500;
+      cursor: pointer;
+      gap: 5px;
+      font-size: 14px;
+    }
+
+    .share-button {
+      background-color: #4CAF50;
+    }
+
+    .save-button {
+      background-color: #FFC107;
+    }
+
+    .whatsapp-instruction {
+      color: #333;
+      font-weight: 500;
+      margin: 10px 0;
+      background-color: rgba(255, 255, 255, 0.7);
+      padding: 5px;
+      border-radius: 5px;
+    }
+
+    .whatsapp-share-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .whatsapp-input {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+      flex-grow: 1;
+      max-width: 180px;
+    }
+
+    .whatsapp-button {
+      background-color: #25D366;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 8px 12px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      font-size: 14px;
+      height: 36px;
+    }
+
+    .whatsapp-button .material-icons {
+      font-size: 18px;
+    }
+
+
+    @media (min-width: 769px) {
+      .info-block {
+        top: 35%;
+        left: 15%;
+        right: 15%;
+        font-size: 17px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="main-container">
+    <!-- Home Section -->
+    <div id="home" class="section">
+      <div class="section-content">
+        <img src="Home.png" alt="Home Page Image">
+        <div class="button-container">
+          <div class="button-row">
+            <a href="tel:+919597484355" class="custom-button">
+              <i class="material-icons">call</i>Call
+            </a>
+            <a href="https://wa.me/919597484355" class="custom-button">
+              <i class="material-icons">chat</i>WhatsApp
+            </a>
+          </div>
+          <div class="button-row">
+            <a href="mailto:srisakthiaircon@gmail.com" class="custom-button">
+              <i class="material-icons">email</i>Email
+            </a>
+            <a href="https://maps.app.goo.gl/zHcNSnFqi2szG7gW6" class="custom-button" target="_blank">
+              <i class="material-icons">location_on</i>Direction
+            </a>
+          </div>
+        </div>
+
+        <div class="info-block">
+          <div class="info-row">
+            <a href="https://maps.app.goo.gl/zHcNSnFqi2szG7gW6" target="_blank" style="color: inherit; text-decoration: none;">
+              <span class="material-icons info-icon">location_on</span>
+            </a>
+            <a href="https://maps.app.goo.gl/zHcNSnFqi2szG7gW6" style="color: black; text-decoration: none;" target="_blank">
+              #114, Annai Indira Salai, Pugalur Road, Karur - 639 001
+            </a>
+          </div>
+          <div class="info-row">
+            <a href="mailto:srisakthiaircon@gmail.com" style="color: inherit; text-decoration: none;">
+              <span class="material-icons info-icon">email</span>
+            </a>
+            <a href="mailto:srisakthiaircon@gmail.com" style="color: black; text-decoration: none;">
+              srisakthiaircon@gmail.com
+            </a>
+          </div>
+          <div class="info-row">
+            <a href="tel:+919597484355" style="color: inherit; text-decoration: none;">
+              <span class="material-icons info-icon">call</span>
+            </a>
+            <a href="tel:+919597484355" style="color: black; text-decoration: none;">
+              +91 95974 84355
+            </a>
+          </div>
+          <a href="#" class="phonebook-button" onclick="addToPhoneBook()">Add to Phonebook</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- About Section -->
+    <div id="about" class="section">
+      <div class="section-content">
+        <img src="About.png" alt="About">
+      </div>
+    </div>
+
+    <!-- Services Section -->
+    <div id="services" class="section">
+      <div class="section-content">
+        <img src="Services.png" alt="Services">
+      </div>
+    </div>
+
+    <!-- Feedback Section -->
+    <div id="feedback" class="section">
+      <div class="section-content">
+        <img src="Feedback.png" alt="Feedback">
+        <form class="feedback-form" action="https://formsubmit.co/srisakthiaircon@gmail.com" method="POST" onsubmit="feedbackAlert(event)">
+          <div class="stars" id="stars">
+            <span data-star="1">&#9733;</span>
+            <span data-star="2">&#9733;</span>
+            <span data-star="3">&#9733;</span>
+            <span data-star="4">&#9733;</span>
+            <span data-star="5">&#9733;</span>
+          </div>
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="email" placeholder="Your Email" required>
+          <textarea name="message" rows="3" placeholder="Your Message" required></textarea>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Enquiry Section -->
+    <div id="enquiry" class="section">
+      <div class="section-content">
+        <img src="Enquiry.png" alt="Enquiry">
+        <form class="enquiry-form" action="https://formsubmit.co/srisakthiaircon@gmail.com" method="POST" onsubmit="enquiryAlert(event)">
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="email" placeholder="Your Email" required>
+          <input type="tel" name="phone" placeholder="Phone Number" required>
+          <textarea name="message" rows="3" placeholder="Your Message" required></textarea>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+
+  <!-- Share Section -->
+    <div id="share" class="section">
+      <div class="section-content">
+        <img src="Share.png" alt="Share">
+        <div class="share-content-overlay">
+          <div class="website-link-container">
+            <p class="website-link">https://srisakthiaircon.vercel.app</p>
+            <button class="copy-button" onclick="copyLink()">
+              <span class="material-icons">content_copy</span>
+            </button>
+          </div>
+          
+          <p class="qr-instruction">Scan below QR to open profile</p>
+          
+          <div class="qr-container">
+            <img src="QR.png" alt="QR Code">
+          </div>
+          
+          <div class="action-buttons">
+            <button class="action-button share-button" onclick="shareProfile()">
+              <span class="material-icons">share</span> Share
+            </button>
+            <button class="action-button save-button" onclick="saveQRCode()">
+              <span class="material-icons">download</span> Save QR
+            </button>
+          </div>
+          
+          <p class="whatsapp-instruction">Share profile to any whatsapp number</p>
+          
+          <div class="whatsapp-share-container">
+            <input type="tel" id="whatsappNumber" class="whatsapp-input" placeholder="Enter WhatsApp Number">
+            <button class="whatsapp-button" onclick="shareOnWhatsApp()">
+              <span class="material-icons">chat</span> Share
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="footer">© 2025 Sri Sakthi Airconditioner</div>
+
+    <!-- Bottom Navigation -->
+    <div class="bottom-nav" id="navbar">
+      <a href="#home" data-target="home"><span class="material-icons">home</span>Home</a>
+      <a href="#about" data-target="about"><span class="material-icons">info</span>About</a>
+      <a href="#services" data-target="services"><span class="material-icons">build</span>Services</a>
+      <a href="#feedback" data-target="feedback"><span class="material-icons">rate_review</span>Feedback</a>
+      <a href="#enquiry" data-target="enquiry"><span class="material-icons">help_outline</span>Enquiry</a>
+      <a href="#share" data-target="share"><span class="material-icons">share</span>Share</a>
+    </div>
+  </div>
+
+  <script>
+      window.addEventListener("DOMContentLoaded", () => {
+    const sections = document.querySelectorAll(".section");
+    const navLinks = document.querySelectorAll(".bottom-nav a");
+
+    function removeActiveClasses() {
+      navLinks.forEach(link => link.classList.remove("active"));
+    }
+
+    function addActiveLink(id) {
+      removeActiveClasses();
+      const activeLink = document.querySelector(`.bottom-nav a[data-target="${id}"]`);
+      if (activeLink) activeLink.classList.add("active");
+    }
+
+    window.addEventListener("scroll", () => {
+      let currentId = "";
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        if (pageYOffset >= sectionTop) {
+          currentId = section.getAttribute("id");
+        }
+      });
+      if (currentId) {
+        addActiveLink(currentId);
+      }
+      
+      // Special handling for the Share section on mobile
+      const windowHeight = window.innerHeight;
+      const docHeight = document.body.scrollHeight;
+      
+      // If we're near the bottom of the page, set Share as active
+      if (window.pageYOffset + windowHeight >= docHeight - 150) {
+        addActiveLink("share");
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.addEventListener("click", () => {
+        const targetId = link.getAttribute("data-target");
+        addActiveLink(targetId);
+      });
+    });
+
+    // Set active nav link on page load
+    const hash = window.location.hash.replace("#", "") || "home";
+    addActiveLink(hash);
+
+    // Add to phonebook
+    window.addToPhoneBook = function () {
+      alert("Contact saved as:\nName: Mahesh R\nCompany: SRI SAKTHI AIRCON");
+    };
+
+    // Feedback form submit
+    const feedbackForm = document.querySelector("#feedbackForm");
+    if (feedbackForm) {
+      feedbackForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        alert("Feedback submitted successfully!");
+        this.submit();
+      });
+    }
+
+    // Enquiry form submit
+    const enquiryForm = document.querySelector("#enquiryForm");
+    if (enquiryForm) {
+      enquiryForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        alert("Enquiry submitted successfully!");
+        this.submit();
+      });
+    }
+
+    // Star rating system
+    const stars = document.querySelectorAll("#stars span");
+    if (stars.length > 0) {
+      stars.forEach(star => {
+        star.addEventListener("click", function () {
+          const value = parseInt(this.dataset.star);
+          stars.forEach(s => {
+            s.classList.toggle("selected", parseInt(s.dataset.star) <= value);
+          });
+        });
+      });
+    }
+
+    // Copy link to clipboard
+    window.copyLink = function () {
+      navigator.clipboard.writeText("https://srisakthiaircon.vercel.app")
+        .then(() => {
+          alert("Link copied to clipboard!");
+        })
+        .catch(err => {
+          console.error('Failed to copy: ', err);
+          alert("Failed to copy link. Please try again.");
+        });
+    };
+
+    // Share using Web Share API
+    window.shareProfile = function () {
+      if (navigator.share) {
+        navigator.share({
+          title: 'Sri Sakthi Aircon',
+          text: 'Check out Sri Sakthi Aircon!',
+          url: 'https://srisakthiaircon.vercel.app',
+        })
+          .then(() => console.log('Successfully shared'))
+          .catch((error) => console.log('Error sharing', error));
+      } else {
+        alert("Web Share API not supported. Please copy the link manually.");
+      }
+    };
+
+    // Download QR Code
+    window.saveQRCode = function () {
+      const link = document.createElement('a');
+      link.href = 'QR.png'; // Make sure this file exists
+      link.download = 'SriSakthiAircon-QR.png';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      alert("QR code download started.");
+    };
+
+    // WhatsApp share
+    window.shareOnWhatsApp = function () {
+      const input = document.getElementById('whatsappNumber');
+      if (!input) {
+        alert("WhatsApp number input field not found.");
+        return;
+      }
+
+      const whatsappNumber = input.value;
+      if (!whatsappNumber) {
+        alert("Please enter a WhatsApp number.");
+        return;
+      }
+
+      const formattedNumber = whatsappNumber.replace(/\D/g, '');
+      const url = `https://wa.me/${formattedNumber}?text=Check out Sri Sakthi Aircon! https://srisakthiaircon.vercel.app`;
+      window.open(url, '_blank');
+    };
+  });
+
+  </script>
+</body>
+</html>
