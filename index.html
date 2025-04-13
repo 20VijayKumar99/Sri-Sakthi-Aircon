@@ -628,28 +628,6 @@
       alert("Contact saved as:\nName: Mahesh R\nCompany: SRI SAKTHI AIRCON");
     };
 
-  function addToPhoneBook() {
-    const vcardData = `
-BEGIN:VCARD
-VERSION:3.0
-FN:Sri Sakthi Aircon
-TEL:+919597484355
-EMAIL:srisakthiaircon@gmail.com
-ADR;TYPE=WORK:;;#114, Annai Indira Salai, Pugalur Road;Karur;Tamil Nadu;639001;India
-END:VCARD
-    `.trim();
-
-    const blob = new Blob([vcardData], { type: 'text/vcard' });
-    const link = document.createElement('a');
-    link.href = URL.createObjectURL(blob);
-    link.download = 'SriSakthiAircon.vcf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  }
-
-
-
     // Feedback form submit
     const feedbackForm = document.querySelector("#feedbackForm");
     if (feedbackForm) {
@@ -739,6 +717,30 @@ END:VCARD
       const url = `https://wa.me/${formattedNumber}?text=Check out Sri Sakthi Aircon! https://srisakthiaircon.vercel.app`;
       window.open(url, '_blank');
     };
+     function addToPhoneBook() {
+    const vCardData = `
+BEGIN:VCARD
+VERSION:3.0
+FN:Sri Sakthi Aircon
+ORG:Sri Sakthi Aircon
+TEL;TYPE=WORK,VOICE:+91 95974 84355
+EMAIL:srisakthiaircon@gmail.com
+ADR;TYPE=WORK:;;#114, Annai Indira Salai, Pugalur Road, Karur - 639 001;Karur;Tamil Nadu;639001;India
+URL:https://srisakthiaircon.vercel.app
+END:VCARD
+    `.trim();
+
+    const blob = new Blob([vCardData], { type: 'text/vcard' });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'SriSakthiAircon.vcf';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
   });
 
   </script>
