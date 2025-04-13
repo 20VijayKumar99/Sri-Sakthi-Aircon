@@ -717,7 +717,8 @@
       const url = `https://wa.me/${formattedNumber}?text=Check out Sri Sakthi Aircon! https://srisakthiaircon.vercel.app`;
       window.open(url, '_blank');
     };
-     function addToPhoneBook() {
+  });
+    function addToPhoneBook() {
     const vCardData = `
 BEGIN:VCARD
 VERSION:3.0
@@ -740,8 +741,7 @@ END:VCARD
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
-  };
-  });
+  }
 
   </script>
 </body>
