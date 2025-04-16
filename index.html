@@ -489,16 +489,16 @@
     }
 
  /* Share Section Styles */
-    .share-content-overlay {
+  .share-content-overlay {
   position: absolute;
-  top: 15%;
-  bottom: 15%; /* 100% - 85% = 15% from bottom */
+  top: 15%; /* Start from 15% from the top */
   left: 50%;
   transform: translateX(-50%);
   width: 90%;
+  height: 70%; /* 85% - 15% = 70% height */
   z-index: 10;
   text-align: center;
-  overflow-y: auto;
+  overflow-y: auto; /* Add scrolling if content exceeds height */
 }
 
     .website-link-container {
