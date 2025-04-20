@@ -332,79 +332,7 @@
       cursor: pointer;
       z-index: 2001;
     }
-
-    /* Payment Section Styles */
-.payment-container {
-  position: absolute;
-  top: 15%;
-  bottom: 20%;
-  left: 0;
-  right: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-}
-
-.section-title {
-  font-weight: bold;
-  font-size: 18px;
-  color: #333;
-  margin-bottom: 15px;
-  text-align: center;
-}
-
-.qr-container {
-  width: 180px;
-  height: 180px;
-  background: white;
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  padding: 10px;
-  margin: 0 auto;
-}
-
-.qr-code {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-}
-
-.upi-apps {
-  display: flex;
-  justify-content: center;
-  gap: 7px;
-  flex-wrap: wrap;
-  max-width: 300px;
-  margin: 0 auto;
-}
-
-.upi-app {
-  width: 65px;
-  height: 65px;
-  background: white;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  overflow: hidden;
-  padding: 8px;
-  border: 1px solid #f0f0f0;
-}
-
-.upi-app img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}    
-
+    
     /* Feedback Form Styles */
     .feedback-form {
       position: absolute;
@@ -773,49 +701,7 @@
   <button id="closeModal"><span class="material-icons">close</span></button>
 </div>
 
-   <!-- Payment Section -->
-<div id="payment" class="section">
-  <div class="section-content">
-    <img src="Payment.png" alt="Payment" class="bg-image">
-    
-    <div class="payment-container">
-      <!-- QR Code Section -->
-      <div class="qr-section">
-        <p class="section-title">Scan below QR to pay</p>
-        <div class="qr-container">
-          <img src="Pay.png" alt="Payment QR" class="qr-code">
-        </div>
-      </div>
-      
-      <!-- UPI Apps Section -->
-      <div class="upi-section">
-        <p class="section-title">Pay with UPI Apps</p>
-        <div class="upi-apps">
-          <!-- Paytm -->
-          <a href="upi://pay?pa=6379860446@pthdfc&pn=Sri%20Sakthi%20Aircon&cu=INR" class="upi-app">
-            <img src="paytm.png" alt="Paytm">
-          </a>
-          
-          <!-- PhonePe -->
-          <a href="upi://pay?pa=6379860446@pthdfc&pn=Sri%20Sakthi%20Aircon&cu=INR" class="upi-app">
-            <img src="phonepe.png" alt="PhonePe">
-          </a>
-          
-          <!-- Google Pay -->
-          <a href="upi://pay?pa=6379860446@pthdfc&pn=Sri%20Sakthi%20Aircon&cu=INR" class="upi-app">
-            <img src="gpay.png" alt="Google Pay">
-          </a>
-          
-          <!-- BHIM UPI -->
-          <a href="upi://pay?pa=6379860446@pthdfc&pn=Sri%20Sakthi%20Aircon&cu=INR" class="upi-app">
-            <img src="bhim.png" alt="BHIM UPI">
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
+   
 
     <!-- Feedback Section -->
     <div id="feedback" class="section">
